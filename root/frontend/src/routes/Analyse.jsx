@@ -9,7 +9,9 @@ export default function Analyse() {
     const searchParams = new URLSearchParams(window.location.search);
     const formdataid = searchParams.get("formdataid");
     axios
-      .get(`/form-data?formdataid=${formdataid}`)
+      .get(
+        `https://easy-survey-back.onrender.com/form-data?formdataid=${formdataid}`
+      )
       .then((response) => {
         if (response.data["success"]) {
           setFormTitle(response.data["data"]["form_title"]);

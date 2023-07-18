@@ -20,7 +20,6 @@ if (cluster.isPrimary) {
   const app = express();
   app.use(cors());
   app.use(express.json());
-  app.use(express.static("./public/"));
 
   //jwt token generation and authentication functions
   const jwt = require("jsonwebtoken");
@@ -395,11 +394,6 @@ if (cluster.isPrimary) {
 
   app.delete("/survey-form", authenticateJWTAccessToken, (req, res) => {});
 
-  app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./public/index.html"));
-  });
-
-  app.get("/:fileName");
   app.listen(5000, () => {
     console.log("listning to port 5000...");
   });

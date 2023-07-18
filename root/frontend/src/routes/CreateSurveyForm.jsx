@@ -13,7 +13,10 @@ export default function CreateSurveyForm() {
     function postFormSchema(formSchema) {
       return new Promise((resolve, reject) => {
         axios
-          .post("/create-survey-form", formSchema)
+          .post(
+            "https://easy-survey-back.onrender.com/create-survey-form",
+            formSchema
+          )
           .then((response) => resolve(response))
           .catch((error) => reject(error));
       });

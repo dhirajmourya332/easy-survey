@@ -19,7 +19,9 @@ export default function Form() {
     if (!currentFormSubmitted && formId) {
       // setFormId(formid);
       axios
-        .get(`/form-schema?formid=${formId}`)
+        .get(
+          `https://easy-survey-back.onrender.com/form-schema?formid=${formId}`
+        )
         .then((response) => {
           if (response.data["success"]) {
             const newFormSchema = [...response.data["data"]["schema"]];
@@ -178,7 +180,10 @@ export default function Form() {
       }
     }
     axios
-      .post(`/submit-user-form?formid=${formId}`, newResponseSchema)
+      .post(
+        `https://easy-survey-back.onrender.com/submit-user-form?formid=${formId}`,
+        newResponseSchema
+      )
       .then((response) => {
         if (response.data["success"]) {
           const submittedForm = localStorage.getItem("form-submitted")

@@ -15,9 +15,8 @@ export default function SignUp() {
       axios.defaults.headers.common[
         "Authorization"
       ] = `Bearer ${localStorage.getItem("auth-token")}`;
-      console.log(axios.defaults.headers.common["Authorization"]);
       axios
-        .get("/authenticate-token")
+        .get("https://easy-survey-back.onrender.com/authenticate-token")
         .then((response) => {
           if (response.data["success"]) {
             window.location.href = "/dashboard";
@@ -74,7 +73,7 @@ export default function SignUp() {
     submitButton.current.disabled = true;
     axios
       .post(
-        "/login",
+        "https://easy-survey-back.onrender.com/login",
         {
           username: userName,
           password: password,
