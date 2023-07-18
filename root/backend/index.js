@@ -394,7 +394,7 @@ if (cluster.isPrimary) {
 
   app.delete("/survey-form", authenticateJWTAccessToken, (req, res) => {});
 
-  app.listen(5000, () => {
-    console.log("listning to port 5000...");
+  app.listen(process.env.PORT, () => {
+    console.log("listning to port " + process.env.PORY);
   });
 }

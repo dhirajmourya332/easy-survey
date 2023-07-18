@@ -63,7 +63,7 @@ export default function SignUp() {
     submitButton.current.disabled = true;
     axios
       .post(
-        "/register-user",
+        "https://easy-survey-back.onrender.com/register-user",
         {
           username: userName,
           password: password,
